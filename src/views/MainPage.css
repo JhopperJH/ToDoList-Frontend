@@ -1,0 +1,131 @@
+/* ตั้งค่าพื้นหลัง */
+.main-bg {
+  background-image: url("images/MainBG.gif");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Ensure the background stays fixed while scrolling */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
+  position: relative; /* Add position relative for layering */
+}
+
+/* กล่องฟอร์ม */
+.main-container {
+  background: rgba(252, 242, 255, 0.589);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  width: 80vw;
+  text-align: center;
+  max-height: 90vh; /* Prevent container from overflowing */
+  overflow-y: auto; /* Enable scrolling inside the container if content exceeds the container height */
+}
+
+/* หัวข้อ */
+.title {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* ฟอร์ม */
+.main-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.main-form select {
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-container button {
+  width: 20%;
+  margin-top: 10px;
+}
+
+.input-container .name-input {
+  width: 40%;
+}
+
+/* ปุ่มสมัคร */
+button {
+  background: #84aef2;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #6b9fe5;
+}
+
+.error-message {
+  color: #bc0618;
+  font-size: 18px;
+  text-align: center;
+}
+
+.todo-list {
+  margin-top: 20px;
+}
+
+.todo-item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.todo-item h3 {
+  margin: 0;
+  color: #333;
+}
+
+.todo-item p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.todo-item input[type="checkbox"] {
+  margin-top: 10px;
+}
+
+.todo-item.confirmed {
+  opacity: 0.6; /* Makes it slightly transparent */
+}
+
+.text-crossed {
+  text-decoration: line-through; /* Cross out text */
+  color: #999; /* Optional: make text gray */
+}

@@ -1,0 +1,108 @@
+/* ตั้งค่าพื้นหลัง */
+.background {
+  background-image: url("images/ToDoLoginBG.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+}
+
+/* กล่องฟอร์ม */
+.register-container {
+  background: rgba(252, 242, 255, 0.589);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  width: 400px;
+  text-align: center;
+}
+
+/* หัวข้อ */
+.title {
+  font-family: "Cursive", sans-serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* ฟอร์ม */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.register-form input,
+.register-form select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.label-container{
+  display: flex;
+}
+
+.label-container label {
+  width: 35%;
+  font-size: 16px;
+}
+
+/* จัดให้ Title & First Name อยู่ในแถวเดียวกัน */
+.name-container {
+  display: flex;
+  gap: 10px;
+}
+
+.name-container select {
+  width: 30%;
+}
+
+.name-container input {
+  width: 70%;
+}
+
+/* ปุ่มสมัคร */
+button {
+  background: #84aef2;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+button:hover {
+  background: #6b9fe5;
+}
+
+.custom-input {
+  background: #000;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.custom-input::placeholder {
+  color: #bbb;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+.custom-password {
+  background: #000;
+  border-radius: 5px;
+}
