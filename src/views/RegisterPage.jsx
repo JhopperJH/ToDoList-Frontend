@@ -137,6 +137,7 @@ const RegisterPage = () => {
               sx={{
                 backgroundColor: "#000",
                 color: "#fff",
+                fontFamily: "IBM Plex Sans Thai",
                 borderRadius: "5px",
                 "& fieldset": { borderColor: "#666" },
               }}
@@ -167,6 +168,7 @@ const RegisterPage = () => {
               sx={{
                 backgroundColor: "#000",
                 color: "#fff",
+                fontFamily: "IBM Plex Sans Thai",
                 borderRadius: "5px",
                 "& fieldset": { borderColor: "#666" },
               }}

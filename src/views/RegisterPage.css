@@ -62,6 +62,7 @@
 
 .name-container select {
   width: 30%;
+  color: #666;
 }
 
 .name-container input {
