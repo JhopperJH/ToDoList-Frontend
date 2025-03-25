@@ -94,7 +94,8 @@ const MainPage = () => {
   };
 
   const handleDateChange = (date) => {
-    setFormData({ ...formData, deadline: date });
+    const adjustedDate = moment(date).tz("Asia/Bangkok").toDate();
+    setFormData({ ...formData, deadline: adjustedDate });
   };
 
   const handleSubmit = async (e) => {
@@ -104,7 +105,7 @@ const MainPage = () => {
     try {
       const formattedDeadline = moment(formData.deadline)
         .tz("Asia/Bangkok")
-        .format("YYYY-MM-DDTHH:mm:ss.SSSZ"); // Convert to ISO string in Thai timezone
+        .format("YYYY-MM-DDTHH:mm:ss.SSS[Z]"); // Convert to ISO string in Thai timezone
       const requestData = {
         ...formData,
         deadline: formattedDeadline,
@@ -197,7 +198,9 @@ const MainPage = () => {
                 placeholderText="Due Date"
                 className="date-picker"
                 required
+                portalId="root"
               />
+
               <input
                 type="text"
                 name="description"
@@ -210,72 +213,76 @@ const MainPage = () => {
             </div>
           </form>
           <div className="todo-list">
-            {todos.length > 0 ? (todos.map((todo, index) => (
-              <Card
-              key={index}
-              className={`todo-item ${todo.confirmed ? "confirmed" : ""}`}
-              sx={{ mb: 2, p: 0 }}
-            >
-              <CardContent style={{ padding: "12px" }}>
-                <Grid
-                  container
-                  spacing={2}
-                  style={{ display: "flex", alignItems: "center" }}
+            {todos.length > 0 ? (
+              todos.map((todo, index) => (
+                <Card
+                  key={index}
+                  className={`todo-item ${todo.confirmed ? "confirmed" : ""}`}
+                  sx={{ mb: 2, p: 0 }}
                 >
-                  <Grid item md={1} xs={2}>
-                    <Checkbox
-                      icon={<CheckCircleOutlineIcon />}
-                      checkedIcon={<CheckCircleIcon />}
-                      checked={todo.confirmed}
-                      onChange={() => handleToggle(todo.id)}
-                    />
-                  </Grid>
-                  <Grid item md={7} xs={10} style={{ textAlign: "left" }}>
-                    <Typography
-                      variant="h6"
-                      component="div"
-                      className={todo.confirmed ? "text-crossed" : ""}
+                  <CardContent style={{ padding: "12px" }}>
+                    <Grid
+                      container
+                      spacing={2}
+                      style={{ display: "flex", alignItems: "center" }}
                     >
-                      {todo.name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      className={todo.confirmed ? "text-crossed" : ""}
-                    >
-                      {todo.description}
-                    </Typography>
-                  </Grid>
-                  <Grid item md={2} xs={12}>
-                    <Typography variant="body2" color="text.secondary">
-                      Due:{" "}
-                      {new Date(todo.deadline).toLocaleDateString("th-TH", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}{" "}
-                      {new Date(todo.deadline).toLocaleTimeString("th-TH", {
-                        hour: "numeric",
-                        minute: "numeric",
-                        hour12: false,
-                        timeZone: "Asia/Bangkok",
-                      })}
-                    </Typography>
-                  </Grid>
-                  <Grid item md={1} xs={6} style={{ alignItems: "center" }}>
-                    <IconButton aria-label="edit">
-                      <EditIcon onClick={() => navigate(`/activities/${todo.id}`)} />
-                    </IconButton>
-                  </Grid>
-                  <Grid item md={1} xs={6}>
-                    <IconButton aria-label="delete">
-                      <DeleteIcon onClick={() => handleDelete(todo.id)} />
-                    </IconButton>
-                  </Grid>
-                </Grid>
-              </CardContent>
-            </Card>
-            ))):(
+                      <Grid item md={1} xs={2}>
+                        <Checkbox
+                          icon={<CheckCircleOutlineIcon />}
+                          checkedIcon={<CheckCircleIcon />}
+                          checked={todo.confirmed}
+                          onChange={() => handleToggle(todo.id)}
+                        />
+                      </Grid>
+                      <Grid item md={7} xs={10} style={{ textAlign: "left" }}>
+                        <Typography
+                          variant="h6"
+                          component="div"
+                          className={todo.confirmed ? "text-crossed" : ""}
+                        >
+                          {todo.name}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          className={todo.confirmed ? "text-crossed" : ""}
+                        >
+                          {todo.description}
+                        </Typography>
+                      </Grid>
+                      <Grid item md={2} xs={12}>
+                        <Typography variant="body2" color="text.secondary">
+                          Due:{" "}
+                          {new Date(todo.deadline).toLocaleDateString("th-TH", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}{" "}
+                          {new Date(todo.deadline).toLocaleTimeString("th-TH", {
+                            hour: "numeric",
+                            minute: "numeric",
+                            hour12: false,
+                            timeZone: "Asia/Bangkok",
+                          })}
+                        </Typography>
+                      </Grid>
+                      <Grid item md={1} xs={6} style={{ alignItems: "center" }}>
+                        <IconButton aria-label="edit">
+                          <EditIcon
+                            onClick={() => navigate(`/activities/${todo.id}`)}
+                          />
+                        </IconButton>
+                      </Grid>
+                      <Grid item md={1} xs={6}>
+                        <IconButton aria-label="delete">
+                          <DeleteIcon onClick={() => handleDelete(todo.id)} />
+                        </IconButton>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Card>
+              ))
+            ) : (
               <p>No todos available.</p>
             )}
           </div>

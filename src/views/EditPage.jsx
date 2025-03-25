@@ -43,13 +43,13 @@ const EditPage = () => {
   // Fetch todo data when the component mounts
   useEffect(() => {
     if (!token || isTokenExpired(token)) {
-          if (!toastShown.current) {
-            toast.error("You are not logged in!");
-            toastShown.current = true;
-          }
-          navigate("/login");
-          return; // Exit early to prevent further execution
-        }
+      if (!toastShown.current) {
+        toast.error("You are not logged in!");
+        toastShown.current = true;
+      }
+      navigate("/login");
+      return; // Exit early to prevent further execution
+    }
 
     fetchTodo(id);
   }, [id, token, navigate]);
@@ -96,7 +96,8 @@ const EditPage = () => {
   };
 
   const handleDateChange = (date) => {
-    setFormData({ ...formData, deadline: date });
+    const adjustedDate = moment(date).tz("Asia/Bangkok").toDate();
+    setFormData({ ...formData, deadline: adjustedDate });
   };
 
   const handleEdit = async (e) => {
@@ -106,7 +107,7 @@ const EditPage = () => {
     try {
       const formattedDeadline = moment(formData.deadline)
         .tz("Asia/Bangkok")
-        .format("YYYY-MM-DDTHH:mm:ss.SSSZ");
+        .format("YYYY-MM-DDTHH:mm:ss.SSS[Z]");
 
       await axios.put(
         `http://localhost:5555/Activities/${id}`,
@@ -159,7 +160,9 @@ const EditPage = () => {
                 placeholderText="Due Date"
                 className="date-picker"
                 required
+                portalId="root"
               />
+
               <input
                 type="text"
                 name="description"
