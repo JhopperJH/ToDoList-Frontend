@@ -40,7 +40,7 @@ const LoginPage = () => {
 
       if (token) {
         Cookies.set("authToken", token, {
-          expires: 1, // Set token expiry to 30 minutes
+          expires: 1,
         });
         toast.success("Login successful!");
         navigate("/main"); // Redirect to main page
