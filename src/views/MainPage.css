@@ -134,3 +134,8 @@ button:hover {
   text-decoration: line-through; /* Cross out text */
   color: #999; /* Optional: make text gray */
 }
+
+.input-style{
+  background-color: #000;
+  color: #fff;
+}

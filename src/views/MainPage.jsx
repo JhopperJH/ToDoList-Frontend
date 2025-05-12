@@ -207,6 +207,7 @@ const MainPage = () => {
                 placeholder="Description"
                 value={formData.description}
                 onChange={handleChange}
+                className="input-style"
                 required
               />
               <button type="submit">Add</button>

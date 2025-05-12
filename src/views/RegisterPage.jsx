@@ -87,6 +87,7 @@ const RegisterPage = () => {
             placeholder="National ID"
             value={formData.nationalId}
             onChange={handleChange}
+            className="input-style"
             required
           />
 
@@ -99,6 +100,7 @@ const RegisterPage = () => {
               name="title"
               value={formData.title}
               onChange={handleChange}
+              className="input-style"
               required
             >
               <option value="">Title</option>
@@ -112,6 +114,7 @@ const RegisterPage = () => {
               placeholder="First Name"
               value={formData.firstName}
               onChange={handleChange}
+              className="input-style"
               required
             />
           </div>
@@ -123,6 +126,7 @@ const RegisterPage = () => {
             placeholder="Last Name"
             value={formData.lastName}
             onChange={handleChange}
+            className="input-style"
             required
           />
 

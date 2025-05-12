@@ -66,6 +66,7 @@ const LoginPage = () => {
               placeholder="National ID"
               value={nationalId}
               onChange={(e) => setNationalId(e.target.value)}
+              className="input-style"
               required
             />
             <label>Password:</label>

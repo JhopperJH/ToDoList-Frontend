@@ -27,6 +27,8 @@
 
 .date-picker {
   z-index: 9999 !important; /* Ensure it appears on top */
+  background-color: #000;
+  color: #fff;
 }
 
 
@@ -75,6 +77,8 @@
 
 .input-container .name-input {
   width: 40%;
+  background-color: #000;
+  color: #fff;
 }
 
 /* ปุ่มสมัคร */
@@ -123,4 +127,9 @@ button:hover {
 
 .todo-item input[type="checkbox"] {
   margin-top: 10px;
+}
+
+.input-style{
+  background-color: #000;
+  color: #fff;
 }

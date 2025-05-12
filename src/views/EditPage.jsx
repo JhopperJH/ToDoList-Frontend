@@ -169,6 +169,7 @@ const EditPage = () => {
                 placeholder="Description"
                 value={formData.description}
                 onChange={handleChange}
+                className="input-style"
                 required
               />
               <button type="submit">Save</button>
